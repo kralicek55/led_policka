@@ -1,14 +1,3 @@
-/**
- * Rezim
- * 
- * 1 - svit tyrkysove
- * 
- * 2 - litej kometo
- * 
- * 3 - svit bile
- * 
- * 4 - svit zlute
- */
 function svit_fialovou () {
     rezim = 5
     svit_barvou(neopixel.colors(NeoPixelColors.Violet))
@@ -63,6 +52,17 @@ makerbit.onIrDatagram(function () {
         svit_fialovou()
     }
 })
+/**
+ * Rezim
+ * 
+ * 1 - svit tyrkysove
+ * 
+ * 2 - litej kometo
+ * 
+ * 3 - svit bile
+ * 
+ * 4 - svit zlute
+ */
 let ledka: neopixel.Strip = null
 let cislo_ledky = 0
 let rezim = 0
