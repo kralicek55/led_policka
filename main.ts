@@ -1,3 +1,22 @@
+/**
+ * Rezim
+ * 
+ * 1 - svit tyrkysove
+ * 
+ * 2 - litej kometo
+ * 
+ * 3 - svit bile
+ * 
+ * 4 - svit zlute
+ */
+function svit_fialovou () {
+    rezim = 5
+    svit_barvou(neopixel.colors(NeoPixelColors.Violet))
+}
+function svit_bile () {
+    rezim = 3
+    svit_barvou(neopixel.colors(NeoPixelColors.White))
+}
 input.onButtonPressed(Button.A, function () {
     // 1
     svit_tyrkysove()
@@ -19,8 +38,15 @@ function vytvor_kometu (cislo_komety: number, delka: number, obracene: boolean) 
 }
 function svit_tyrkysove () {
     rezim = 1
-    horni_pasek.showColor(neopixel.rgb(19, 84, 78))
-    dolni_pasek.showColor(neopixel.rgb(19, 84, 78))
+    svit_barvou(neopixel.rgb(19, 84, 78))
+}
+function svit_zlute () {
+    rezim = 4
+    svit_barvou(neopixel.colors(NeoPixelColors.Yellow))
+}
+function svit_barvou (barva: number) {
+    horni_pasek.showColor(barva)
+    dolni_pasek.showColor(barva)
 }
 makerbit.onIrDatagram(function () {
     if (makerbit.irDatagram() == "0x00FFA25D") {
@@ -29,15 +55,14 @@ makerbit.onIrDatagram(function () {
     } else if (makerbit.irDatagram() == "0x00FF629D") {
         // 2
         litej_kometo()
+    } else if (makerbit.irDatagram() == "0x00FFE21D") {
+        svit_bile()
+    } else if (makerbit.irDatagram() == "0x00FF22DD") {
+        svit_zlute()
+    } else if (makerbit.irDatagram() == "0x00FF02FD") {
+        svit_fialovou()
     }
 })
-/**
- * Rezim
- * 
- * 1 - svit tyrkysove
- * 
- * 2 - litej kometo
- */
 let ledka: neopixel.Strip = null
 let cislo_ledky = 0
 let rezim = 0
