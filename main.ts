@@ -1,0 +1,13 @@
+basic.showIcon(IconNames.Ghost)
+let horni_pasek = neopixel.create(DigitalPin.P1, 142, NeoPixelMode.RGB)
+let horni_kometa = horni_pasek.range(0, 10)
+horni_kometa.showColor(neopixel.colors(NeoPixelColors.Violet))
+let dolni_pasek = neopixel.create(DigitalPin.P0, 142, NeoPixelMode.RGB)
+let dolni_kometa = dolni_pasek.range(132, 10)
+dolni_kometa.showColor(neopixel.colors(NeoPixelColors.Violet))
+basic.forever(function () {
+    horni_pasek.rotate(1)
+    horni_pasek.show()
+    dolni_pasek.rotate(-1)
+    dolni_pasek.show()
+})
