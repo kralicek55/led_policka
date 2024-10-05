@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6",
+        "MakerBit-IR-Receiver": "github:1010technologies/pxt-makerbit-ir-receiver#v1.5.14"
     },
     "files": [
         "main.blocks",
